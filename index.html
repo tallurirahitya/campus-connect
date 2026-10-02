@@ -18,6 +18,17 @@ body{
     color:#1e293b;
 }
 
+/* Login is the first/only visible screen until the student logs in */
+body:not(.logged-in) > header,
+body:not(.logged-in) > #homePage,
+body:not(.logged-in) > #contentPage,
+body:not(.logged-in) > footer{
+    display:none !important;
+}
+body.logged-in > #loginPage{
+    display:none !important;
+}
+
 header{
     background:linear-gradient(135deg,#2563eb,#7c3aed);
     color:white;
@@ -317,6 +328,102 @@ footer p{
 .small{font-size:13px;color:#64748b}
 select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;margin:7px 0 12px}
 
+
+/* ===== LOGIN PAGE ===== */
+.login-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px 20px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+.login-card{
+    width:100%;
+    max-width:460px;
+    background:white;
+    padding:38px;
+    border-radius:24px;
+    box-shadow:0 20px 60px rgba(15,23,42,.25);
+}
+.login-logo{
+    text-align:center;
+    font-size:30px;
+    font-weight:800;
+    color:#2563eb;
+    margin-bottom:8px;
+}
+.login-subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:28px;
+}
+.login-card label{
+    display:block;
+    font-weight:600;
+    margin:14px 0 6px;
+    color:#334155;
+}
+.login-card input,.login-card select{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+}
+.login-card input:focus,.login-card select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.12);
+}
+.login-btn{
+    width:100%;
+    border:none;
+    padding:14px;
+    margin-top:20px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.login-btn:hover{opacity:.92}
+.login-note{
+    margin-top:16px;
+    text-align:center;
+    color:#64748b;
+    font-size:12px;
+    line-height:1.5;
+}
+.login-error{
+    display:none;
+    margin-top:12px;
+    padding:10px;
+    border-radius:8px;
+    background:#fee2e2;
+    color:#991b1b;
+    font-size:14px;
+}
+.user-badge{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-left:12px;
+}
+.logout-btn{
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.35);
+    color:white;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+@media(max-width:700px){
+    .login-card{padding:28px 22px}
+    .user-badge{margin-left:0}
+}
+
 @media(max-width:700px){
 
     nav{
@@ -342,6 +449,45 @@ select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px
 
 <body>
 
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="login-page">
+    <div class="login-card">
+        <div class="login-logo">🎓 CAMPUSCONNECT</div>
+        <p class="login-subtitle">Student Learning Portal</p>
+
+        <form onsubmit="loginUser(event)">
+            <label for="loginName">Student Name</label>
+            <input id="loginName" type="text" placeholder="Enter your name" required>
+
+            <label for="loginYear">Year</label>
+            <select id="loginYear" required>
+                <option value="">Select your year</option>
+                <option>1st Year</option>
+                <option>2nd Year</option>
+                <option>3rd Year</option>
+            </select>
+
+            <label for="loginGroup">Group</label>
+            <select id="loginGroup" required>
+                <option value="">Select your group</option>
+                <option>Data Science</option>
+                <option>Computer Science</option>
+                <option>Artificial Intelligence</option>
+                <option>BCA</option>
+                <option>BBA</option>
+                <option>B.Com</option>
+            </select>
+
+            <div id="loginError" class="login-error">Please enter your name, year and group.</div>
+
+            <button class="login-btn" type="submit">Login to CampusConnect →</button>
+        </form>
+
+        <p class="login-note">Enter your student details to access CampusConnect.</p>
+    </div>
+</div>
+
 <header>
 
 <div class="logo">🎓 CAMPUSCONNECT</div>
@@ -356,6 +502,10 @@ select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px
 <button onclick="showEvents()">Events</button>
 <button onclick="showClubs()">Clubs</button>
 <button onclick="showChat()">Mini Chat</button>
+<div class="user-badge">
+    <span id="loggedInUser">Student</span>
+    <button class="logout-btn" onclick="logoutUser()">Logout</button>
+</div>
 </nav>
 
 </header>
@@ -479,6 +629,63 @@ Data Science • Computer Science • AI • BCA • BBA • B.Com
 
 
 <script>
+
+/* ================= LOGIN ================= */
+
+function loginUser(event){
+    event.preventDefault();
+
+    const name=document.getElementById("loginName").value.trim();
+    const year=document.getElementById("loginYear").value;
+    const group=document.getElementById("loginGroup").value;
+    const error=document.getElementById("loginError");
+
+    if(!name || !year || !group){
+        error.textContent="Please enter your name, year and group.";
+        error.style.display="block";
+        return;
+    }
+
+    error.style.display="none";
+
+    const user={name,year,group};
+    startCampusSession(user);
+}
+
+function startCampusSession(user){
+    document.body.classList.add("logged-in");
+    document.getElementById("loginPage").classList.add("hidden");
+    document.querySelector("header").classList.remove("hidden");
+    document.getElementById("loggedInUser").textContent="Hi, "+user.name;
+    document.querySelector("footer").classList.remove("hidden");
+    document.getElementById("homePage").classList.remove("hidden");
+    document.getElementById("contentPage").classList.add("hidden");
+    window.scrollTo(0,0);
+}
+
+function logoutUser(){
+    document.body.classList.remove("logged-in");
+    document.getElementById("loginPage").classList.remove("hidden");
+    document.querySelector("header").classList.add("hidden");
+    document.querySelector("footer").classList.add("hidden");
+    document.getElementById("homePage").classList.add("hidden");
+    document.getElementById("contentPage").classList.add("hidden");
+    document.getElementById("loginName").value="";
+    document.getElementById("loginYear").value="";
+    document.getElementById("loginGroup").value="";
+    document.getElementById("loginError").style.display="none";
+    window.scrollTo(0,0);
+}
+
+function checkLoginSession(){
+    // Always show the login page when the website is opened.
+    document.body.classList.remove("logged-in");
+    document.getElementById("loginPage").classList.remove("hidden");
+    document.querySelector("header").classList.add("hidden");
+    document.querySelector("footer").classList.add("hidden");
+    document.getElementById("homePage").classList.add("hidden");
+    document.getElementById("contentPage").classList.add("hidden");
+}
 
 /* ================= DATA ================= */
 
@@ -1055,52 +1262,87 @@ function checkEnglish(i){
 /* ================= APTITUDE ================= */
 
 function showAptitude(){
-
     hideHome();
-
     let html=`
-
     <button class="btn back" onclick="showHome()">← Home</button>
-
-    <h2 class="section-title">
-    🧠 Aptitude Practice
-    </h2>
-
+    <h2 class="section-title">🧠 Aptitude Practice</h2>
     <div class="grid">
-
-    <div class="card">
-    <div class="icon">🔢</div>
-    <h3>Quantitative Aptitude</h3>
-    <p>Percentages, profit and loss, averages, probability.</p>
-    <button class="btn">Practice</button>
-    </div>
-
-    <div class="card">
-    <div class="icon">🧩</div>
-    <h3>Logical Reasoning</h3>
-    <p>Series, puzzles, coding-decoding and directions.</p>
-    <button class="btn">Practice</button>
-    </div>
-
-    <div class="card">
-    <div class="icon">📚</div>
-    <h3>Verbal Ability</h3>
-    <p>Grammar, comprehension and vocabulary.</p>
-    <button class="btn">Practice</button>
-    </div>
-
-    <div class="card">
-    <div class="icon">⏱️</div>
-    <h3>Mock Test</h3>
-    <p>Timed aptitude test for placement preparation.</p>
-    <button class="btn">Start Test</button>
-    </div>
-
-    </div>
-
-    `;
-
+      <div class="card">
+        <div class="icon">🔢</div><h3>Quantitative Aptitude</h3>
+        <p>Percentages, profit and loss, averages and probability.</p>
+        <button class="btn" onclick="showQuantitative()">Practice</button>
+      </div>
+      <div class="card">
+        <div class="icon">🧩</div><h3>Logical Reasoning</h3>
+        <p>Series, puzzles, coding-decoding and directions.</p>
+        <button class="btn" onclick="showLogical()">Practice</button>
+      </div>
+      <div class="card">
+        <div class="icon">📚</div><h3>Verbal Ability</h3>
+        <p>Grammar, comprehension and vocabulary.</p>
+        <button class="btn" onclick="showVerbal()">Practice</button>
+      </div>
+      <div class="card">
+        <div class="icon">⏱️</div><h3>Mock Test</h3>
+        <p>Try a short mixed aptitude test for placement preparation.</p>
+        <button class="btn" onclick="showMockTest()">Start Test</button>
+      </div>
+    </div>`;
     showContent(html);
+}
+
+const aptitudeQuestions={
+  quantitative:[
+    {q:"What is 20% of 250?",o:["40","50","60","70"],a:1},
+    {q:"A product costs ₹500 and is sold for ₹600. What is the profit percentage?",o:["10%","15%","20%","25%"],a:2},
+    {q:"The average of 10, 20 and 30 is:",o:["15","20","25","30"],a:1}
+  ],
+  logical:[
+    {q:"Find the next number: 2, 4, 8, 16, ?",o:["20","24","32","36"],a:2},
+    {q:"If CAT is coded as DBU, how is DOG coded?",o:["EPH","EOG","FPH","DPH"],a:0},
+    {q:"Which one is different?",o:["Apple","Mango","Carrot","Banana"],a:2}
+  ],
+  verbal:[
+    {q:"Choose the synonym of 'Rapid'.",o:["Slow","Fast","Weak","Late"],a:1},
+    {q:"Choose the correct sentence.",o:["She go to college.","She goes to college.","She going college.","She gone to college."],a:1},
+    {q:"Choose the antonym of 'Ancient'.",o:["Old","Historic","Modern","Past"],a:2}
+  ],
+  mock:[
+    {q:"What is 15% of 200?",o:["20","30","40","50"],a:1},
+    {q:"Next number: 3, 6, 12, 24, ?",o:["36","42","48","54"],a:2},
+    {q:"Synonym of 'Happy' is:",o:["Sad","Joyful","Angry","Tired"],a:1},
+    {q:"A train travels 60 km in 1 hour. How far in 3 hours?",o:["120 km","150 km","180 km","240 km"],a:2}
+  ]
+};
+
+function renderAptitudeQuiz(title,type){
+  const qs=aptitudeQuestions[type];
+  let html=`<button class="btn back" onclick="showAptitude()">← Aptitude</button><h2 class="section-title">${title}</h2>`;
+  qs.forEach((x,i)=>{
+    html+=`<div class="card" style="margin-bottom:20px"><h3>Q${i+1}. ${x.q}</h3>`;
+    x.o.forEach((opt,j)=>{ html+=`<label class="choice" style="display:block;margin:10px 0"><input type="radio" name="apt${i}" value="${j}"> ${opt}</label>`; });
+    html+=`</div>`;
+  });
+  html+=`<button class="btn" onclick="checkAptitude('${type}')">Submit Answers</button><div id="aptitudeResult" style="margin-top:20px"></div>`;
+  showContent(html);
+}
+
+function showQuantitative(){renderAptitudeQuiz("🔢 Quantitative Aptitude","quantitative");}
+function showLogical(){renderAptitudeQuiz("🧩 Logical Reasoning","logical");}
+function showVerbal(){renderAptitudeQuiz("📚 Verbal Ability","verbal");}
+function showMockTest(){renderAptitudeQuiz("⏱️ Aptitude Mock Test","mock");}
+
+function checkAptitude(type){
+  const qs=aptitudeQuestions[type];
+  let score=0, answered=0;
+  qs.forEach((x,i)=>{
+    const selected=document.querySelector(`input[name="apt${i}"]:checked`);
+    if(selected){ answered++; if(Number(selected.value)===x.a) score++; }
+  });
+  const result=document.getElementById("aptitudeResult");
+  result.className="result "+(score===qs.length?"success":"error");
+  result.innerHTML=`<strong>Score: ${score}/${qs.length}</strong><br>Answered: ${answered}/${qs.length}`;
+  if(score>0) recordActivity("aptitude");
 }
 
 
@@ -1346,6 +1588,7 @@ function showContent(html){
 }
 
 updateHomeStats();
+checkLoginSession();
 </script>
 
 </body>
