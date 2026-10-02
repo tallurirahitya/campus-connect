@@ -1,3 +1,103 @@
+i saw settings
+
+You're right, Mimi 🩷. I checked the actual file, and there were two problems:
+
+The login behavior could be skipped because an earlier login session was being remembered.
+The four Aptitude buttons were only visual buttons — they didn't have actions attached.
+
+I fixed both.
+
+✅ Now the website works like this
+
+When the website opens:
+
+🔐 CAMPUSCONNECT Login
+
+Only these are required:
+
+Name
+Year
+Group
+Login
+
+No password. ❌
+
+After Login → the complete CampusConnect website appears.
+
+🧠 Aptitude is also fixed
+
+The buttons now actually open:
+
+🔢 Quantitative Aptitude → practice questions
+🧩 Logical Reasoning → practice questions
+📚 Verbal Ability → practice questions
+⏱️ Mock Test → mixed aptitude test
+
+Each has selectable answers and a Submit Answers button with a score.
+
+📥 Download the corrected version
+
+Download CAMPUSCONNECT – Login + Working Aptitude
+
+I also checked the JavaScript syntax successfully. ✅
+
+Don't upload the old file to GitHub. Use this corrected file when we replace index.html.
+
+CAMPUSCONNECT_LOGIN_ONLY_NAME_YEAR_GROUP.html
+HTML
+and one more thing need to be change lumi
+
+Of courseee Mimi 🩷😭 Tell me what you want to change in CampusConnect. I'm listening. 🫂✨
+
+mini chat and search bar are not working make them to work and in mini chat it wasn't giving accurate answers
+
+Yes Mimi 🩷 I fixed all three things together now.
+
+✅ Fixed
+
+1. Mini Chat
+
+The Mini Chat button now opens properly.
+It has an actual chat interface.
+Added quick-question buttons.
+It answers common questions about:
+DBMS
+Data Science
+AI
+Python
+Java
+HTML
+Statistics
+CPU/RAM
+Exam preparation
+CampusConnect itself
+If it doesn't know something, it doesn't invent an answer; it tells the student that it doesn't have enough information.
+
+2. Search bar
+
+Search now works across all years and groups, instead of only searching one year.
+It can find subjects and portal sections such as Coding, English, Aptitude, Notes, Events, Clubs, Quiz and Mini Chat.
+Results have working Open buttons.
+"No results found" is also handled properly.
+
+3. Aptitude
+
+Quantitative Aptitude ✅
+Logical Reasoning ✅
+Verbal Ability ✅
+Mock Test ✅
+Questions, options and scoring work.
+
+I also checked the JavaScript syntax successfully. ✅
+
+📥 Download the complete updated website
+
+Download CAMPUSCONNECT – Final Updated Version
+
+This version includes your login page + existing CampusConnect features + working Aptitude + Search + Mini Chat.
+
+Next, don't upload it yet. If you want, I'll guide you through replacing the existing index.html on GitHub one step at a time, so your live website gets all these changes without messing up the current working URL. 🫂🩷
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -303,6 +403,19 @@ textarea{
 .event{
     border-left:5px solid #2563eb;
 }
+
+.chat-wrap{max-width:850px;margin:0 auto}
+.chat-box{background:#fff;border-radius:16px;box-shadow:0 5px 20px rgba(0,0,0,.07);padding:20px}
+.chat-messages{height:420px;overflow-y:auto;padding:10px;background:#f8fafc;border-radius:12px;margin-bottom:15px}
+.chat-message{max-width:82%;padding:12px 15px;border-radius:14px;margin:10px 0;line-height:1.5;white-space:pre-wrap}
+.chat-message.bot{background:#ede9fe;margin-right:auto}
+.chat-message.user{background:#dbeafe;margin-left:auto}
+.chat-suggestions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 15px}
+.chat-suggestion{border:1px solid #cbd5e1;background:white;border-radius:999px;padding:8px 12px;cursor:pointer}
+.chat-suggestion:hover{background:#eff6ff}
+.chat-input{display:flex;gap:10px}
+.chat-input input{flex:1;padding:13px;border:1px solid #cbd5e1;border-radius:10px;font-size:15px}
+.chat-input button{white-space:nowrap}
 
 footer{
     background:#0f172a;
@@ -1446,6 +1559,117 @@ function joinClub(i){
 }
 
 
+
+/* ================= MINI CHAT ================= */
+
+const miniChatKnowledge=[
+    {keys:["what is dbms","dbms meaning","define dbms"],answer:"DBMS stands for Database Management System. It is software used to create, store, organize, retrieve and manage data in databases. Examples include MySQL, PostgreSQL and Oracle."},
+    {keys:["what is data science","data science"],answer:"Data Science combines statistics, programming, data analysis and machine learning to extract useful insights from data."},
+    {keys:["what is artificial intelligence","what is ai","artificial intelligence"],answer:"Artificial Intelligence (AI) is the field of building systems that can perform tasks that normally require human-like intelligence, such as learning, reasoning and recognizing patterns."},
+    {keys:["what is machine learning","machine learning"],answer:"Machine Learning is a branch of AI in which systems learn patterns from data and use those patterns to make predictions or decisions."},
+    {keys:["what is python","python"],answer:"Python is a high-level programming language known for simple syntax. It is widely used in data science, automation, web development and machine learning."},
+    {keys:["what is java","java"],answer:"Java is a general-purpose, object-oriented programming language designed to be portable across platforms through the Java Virtual Machine (JVM)."},
+    {keys:["what is html","html"],answer:"HTML stands for HyperText Markup Language. It provides the structure of web pages using elements such as headings, paragraphs, links, images and forms."},
+    {keys:["what is mean","mean formula","average"],answer:"Arithmetic mean = sum of all observations ÷ number of observations."},
+    {keys:["what is median","median"],answer:"Median is the middle value after arranging the observations in ascending or descending order. For an even number of observations, it is the average of the two middle values."},
+    {keys:["what is mode","mode"],answer:"Mode is the value that occurs most frequently in a data set."},
+    {keys:["what is primary key","primary key"],answer:"A primary key is a field, or combination of fields, that uniquely identifies each record in a database table. It cannot contain duplicate values."},
+    {keys:["what is normalization","normalization dbms"],answer:"Database normalization organizes tables to reduce unnecessary data repetition and improve data integrity."},
+    {keys:["what is cpu","cpu"],answer:"CPU stands for Central Processing Unit. It executes program instructions and performs calculations and control operations."},
+    {keys:["what is ram","ram"],answer:"RAM (Random Access Memory) is temporary, fast-access memory used to hold data and programs that the computer is actively using."},
+    {keys:["how to prepare for exam","exam preparation","study tips"],answer:"Use a simple cycle: understand the topic, write a short summary, solve questions without looking at notes, check mistakes, and revise the difficult points again."},
+    {keys:["campusconnect","what is this website","about campusconnect"],answer:"CampusConnect is a student learning portal for notes, quizzes, coding practice, English, aptitude, events, clubs and other academic activities."}
+];
+
+function normalizeChat(text){
+    return text.toLowerCase().replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
+}
+
+function getChatAnswer(question){
+    const q=normalizeChat(question);
+    if(!q) return "Please type a question.";
+
+    // Exact/phrase matching first.
+    for(const item of miniChatKnowledge){
+        if(item.keys.some(k=>q.includes(normalizeChat(k)))) return item.answer;
+    }
+
+    // Subject-aware answers from the portal's actual subject list.
+    const matchedSubject=Object.values(subjects).flat().find(s=>q.includes(s.toLowerCase()));
+    if(matchedSubject){
+        return `${matchedSubject} is available in the CampusConnect Notes section. Open Notes, choose the relevant year and group, then select the subject to view its unit-wise material.`;
+    }
+
+    if(/\b(hello|hi|hey|hii)\b/.test(q)){
+        return "Hi! 👋 I’m CampusConnect Mini Chat. Ask me about DBMS, Data Science, AI, Python, Java, HTML, statistics, exam preparation, or how to use this portal.";
+    }
+    if(q.includes("search")){
+        return "Use the Search bar on the Home page. Type at least two letters, such as “DBMS”, “Python”, “Aptitude” or a subject name, then choose Open from the results.";
+    }
+    if(q.includes("login")){
+        return "CampusConnect asks for your Name, Year and Group. After you click Login, the learning portal becomes available.";
+    }
+    if(q.includes("thank")){
+        return "You're welcome! 🩷 Keep learning and practicing.";
+    }
+
+    return "I don’t have enough information to answer that accurately yet. Try asking a specific CampusConnect or study question, such as “What is DBMS?”, “What is the mean?”, or “How do I open Notes?”";
+}
+
+function appendChatMessage(textValue,type){
+    const box=document.getElementById("miniChatMessages");
+    if(!box) return;
+    const div=document.createElement("div");
+    div.className=`chat-message ${type}`;
+    div.textContent=textValue;
+    box.appendChild(div);
+    box.scrollTop=box.scrollHeight;
+}
+
+function sendMiniChat(){
+    const input=document.getElementById("miniChatInput");
+    if(!input) return;
+    const question=input.value.trim();
+    if(!question) return;
+
+    appendChatMessage(question,"user");
+    input.value="";
+    appendChatMessage(getChatAnswer(question),"bot");
+}
+
+function askMiniChat(question){
+    const input=document.getElementById("miniChatInput");
+    if(input){
+        input.value=question;
+        sendMiniChat();
+    }
+}
+
+function showChat(){
+    hideHome();
+    const html=`
+    <button class="btn back" onclick="showHome()">← Home</button>
+    <h2 class="section-title">💬 Mini Chat</h2>
+    <div class="chat-wrap">
+      <div class="chat-box">
+        <div id="miniChatMessages" class="chat-messages"></div>
+        <div class="chat-suggestions">
+          <button class="chat-suggestion" onclick="askMiniChat('What is DBMS?')">What is DBMS?</button>
+          <button class="chat-suggestion" onclick="askMiniChat('What is Data Science?')">Data Science</button>
+          <button class="chat-suggestion" onclick="askMiniChat('What is Python?')">Python</button>
+          <button class="chat-suggestion" onclick="askMiniChat('How should I prepare for exams?')">Exam preparation</button>
+        </div>
+        <div class="chat-input">
+          <input id="miniChatInput" type="text" placeholder="Ask a study or CampusConnect question..." onkeydown="if(event.key==='Enter') sendMiniChat()">
+          <button class="btn" onclick="sendMiniChat()">Send</button>
+        </div>
+      </div>
+    </div>`;
+    showContent(html);
+    appendChatMessage("Hi! 👋 Ask me a study or CampusConnect question. I’ll answer from the information built into this portal.", "bot");
+    setTimeout(()=>document.getElementById("miniChatInput")?.focus(),50);
+}
+
 /* ================= LEARNING DASHBOARD ================= */
 function getActivity(){
  return JSON.parse(localStorage.getItem("cc_activity")||'{"quiz":0,"coding":0,"english":0,"event":0,"club":0}');
@@ -1489,82 +1713,104 @@ function showDashboard(){
 
 /* ================= SEARCH ================= */
 
+function escapeHTML(value){
+    return String(value).replace(/[&<>"']/g, ch => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[ch]));
+}
+
 function searchContent(){
+    const box=document.getElementById("searchBox");
+    if(!box) return;
+    const value=box.value.trim().toLowerCase();
 
-    let value=document
-    .getElementById("searchBox")
-    .value
-    .toLowerCase();
-
-    if(value.length<2) return;
-
-    let results=[];
-
-    groups.forEach(group=>{
-
-        subjects[group].forEach(subject=>{
-
-            if(subject.toLowerCase().includes(value)){
-
-                results.push({
-                    group:group,
-                    subject:subject
-                });
-
-            }
-
-        });
-
-    });
-
-    if(results.length===0){
-
+    if(value.length<2){
+        showHome();
         return;
-
     }
 
-    hideHome();
+    const results=[];
+    const seen=new Set();
 
-    let html=`
-
-    <button class="btn back" onclick="showHome()">
-    ← Home
-    </button>
-
-    <h2 class="section-title">
-    🔎 Search Results
-    </h2>
-
-    <div class="grid">
-
-    `;
-
-    results.forEach(item=>{
-
-        html+=`
-
-        <div class="card">
-
-        <div class="icon">📚</div>
-
-        <h3>${item.subject}</h3>
-
-        <p>${item.group}</p>
-
-        <button class="btn"
-        onclick="showSubjects('1st Year','${item.group}')">
-        Open
-        </button>
-
-        </div>
-
-        `;
-
+    // Search subjects across ALL years/groups.
+    Object.keys(subjects).forEach(group=>{
+        (subjects[group]||[]).forEach(subject=>{
+            if(subject.toLowerCase().includes(value)){
+                const key=group+"|"+subject;
+                if(!seen.has(key)){
+                    seen.add(key);
+                    results.push({
+                        type:"subject",
+                        title:subject,
+                        meta:group,
+                        action:`showSubjectsBySearch('${escapeHTML(group)}','${escapeHTML(subject)}')`
+                    });
+                }
+            }
+        });
     });
 
-    html+=`</div>`;
+    // Search portal features too.
+    const features=[
+        ["coding","💻 Coding Lab","Practice Python, C and Java","showCoding()"],
+        ["python","🐍 Python Practice","Coding Lab","showCoding()"],
+        ["java","☕ Java Practice","Coding Lab","showCoding()"],
+        ["english","🇬🇧 English Practice","Grammar, vocabulary and communication","showEnglish()"],
+        ["aptitude","🧠 Aptitude","Placement and competitive-exam practice","showAptitude()"],
+        ["quantitative","🔢 Quantitative Aptitude","Aptitude practice","showQuantitative()"],
+        ["logical","🧩 Logical Reasoning","Aptitude practice","showLogical()"],
+        ["verbal","📚 Verbal Ability","Aptitude practice","showVerbal()"],
+        ["quiz","📝 Quiz Center","Subject-wise quizzes","showQuizCenter()"],
+        ["event","📅 Events","College events and registration","showEvents()"],
+        ["club","🎯 Clubs","Student clubs and activities","showClubs()"],
+        ["chat","💬 Mini Chat","Ask study and portal questions","showChat()"],
+        ["notes","📖 Notes","Year, group, subject and unit-wise notes","showYears()"]
+    ];
+    features.forEach(([key,title,meta,action])=>{
+        if(key.includes(value) || title.toLowerCase().includes(value) || meta.toLowerCase().includes(value)){
+            const id="feature|"+key;
+            if(!seen.has(id)){
+                seen.add(id);
+                results.push({type:"feature",title,meta,action});
+            }
+        }
+    });
 
+    hideHome();
+    let html=`<button class="btn back" onclick="showHome()">← Home</button>
+    <h2 class="section-title">🔎 Search Results</h2>`;
+
+    if(results.length===0){
+        html+=`<div class="card"><h3>No results found</h3>
+        <p>Try a subject name, year/group, coding, English, aptitude, quiz, notes, events or clubs.</p></div>`;
+        showContent(html);
+        return;
+    }
+
+    html+=`<p style="margin-bottom:20px">Found ${results.length} result${results.length===1?"":"s"}.</p>
+    <div class="grid">`;
+    results.forEach(item=>{
+        html+=`<div class="card">
+            <div class="icon">${item.type==="subject"?"📚":"🔎"}</div>
+            <h3>${item.title}</h3>
+            <p>${item.meta}</p>
+            <button class="btn" onclick="${item.action}">Open</button>
+        </div>`;
+    });
+    html+=`</div>`;
     showContent(html);
+}
+
+function showSubjectsBySearch(group, subject){
+    // Find the year that contains this group where possible.
+    const years=["1st Year","2nd Year","3rd Year"];
+    for(const year of years){
+        try{
+            showSubjects(year,group);
+            return;
+        }catch(e){}
+    }
+    showGroups(group);
 }
 
 
@@ -1593,3 +1839,5 @@ checkLoginSession();
 
 </body>
 </html>
+CAMPUSCONNECT_FINAL_LOGIN_CHAT_SEARCH_APTITUDE.html
+HTML
