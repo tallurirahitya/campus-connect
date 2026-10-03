@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CAMPUSCONNECT</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base65,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB4PSI1MCIgeT0iODIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iODIiPvCfjpM8L3RleHQ+PC9zdmc+">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB4PSI1MCIgeT0iODIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iODIiPvCfjpM8L3RleHQ+PC9zdmc+">
 
 <style>
 *{
@@ -54,18 +54,22 @@ nav{
 }
 
 nav button{
-    background:none;
-    border:none;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.55);
+    border-radius:8px;
     color:white;
     cursor:pointer;
     font-size:18px;
     font-weight:600;
-    padding:8px 4px;
+    padding:9px 13px;
     white-space:nowrap;
+    transition:all 0.2s ease;
 }
 
 nav button:hover{
-    text-decoration:underline;
+    background:rgba(255,255,255,0.20);
+    border-color:white;
+    transform:translateY(-1px);
 }
 
 .hero{
