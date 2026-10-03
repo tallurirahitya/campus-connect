@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0052)https://campus-connect-git-main-rahitya1.vercel.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CAMPUSCONNECT</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB4PSI1MCIgeT0iODIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iODIiPvCfjpM8L3RleHQ+PC9zdmc+">
@@ -466,24 +466,69 @@ select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px
         gap:10px;
     }
 }
+
+/* ===== CAMPUSCONNECT ENHANCEMENTS ===== */
+.learning-overview{background:white;padding:30px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.07);display:flex;align-items:center;gap:35px;margin-bottom:25px}
+.progress-circle{width:150px;height:150px;border-radius:50%;background:conic-gradient(#2563eb 0deg,#7c3aed 180deg,#e2e8f0 180deg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.progress-inner{width:115px;height:115px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.progress-inner strong{font-size:28px;color:#2563eb}.progress-inner span{font-size:13px;color:#64748b}
+.learning-overview h2{margin-bottom:10px}.learning-overview p{color:#64748b;line-height:1.6}
+.learning-stat-row{display:flex;gap:30px;margin-top:20px}.learning-stat-row div{display:flex;flex-direction:column}
+.learning-stat-row strong{font-size:24px;color:#2563eb}.learning-stat-row span{color:#64748b;font-size:13px}
+.performance-card{background:white;padding:30px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.07);margin-bottom:30px}
+.performance-card h2{margin-bottom:8px}.performance-chart{margin-top:25px}.chart-item{margin-bottom:18px}
+.chart-label{display:flex;justify-content:space-between;margin-bottom:7px}.chart-label span{color:#334155;font-weight:600}.chart-label strong{color:#2563eb}
+.chart-bar{height:12px;background:#e2e8f0;border-radius:20px;overflow:hidden}
+.chart-fill{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);border-radius:20px;transition:width .5s ease}
+.learning-module-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:25px}
+.learning-module-card{background:white;padding:22px;border-radius:16px;box-shadow:0 5px 18px rgba(0,0,0,.07);display:flex;align-items:center;gap:16px;cursor:pointer;transition:.25s}
+.learning-module-card:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,.12)}
+.learning-icon{font-size:38px}.learning-info{flex:1}.learning-info h3{margin-bottom:6px}
+.learning-info p{color:#64748b;font-size:14px;line-height:1.4;margin-bottom:10px}.learning-arrow{font-size:25px;color:#2563eb}
+.status-chip{display:inline-block;padding:6px 10px;border-radius:20px;background:#eff6ff;color:#2563eb;font-size:12px;font-weight:bold}
+.status-chip.completed{background:#dcfce7;color:#166534}.status-chip.in-progress{background:#fef3c7;color:#92400e}
+.status-chip.paused{background:#f1f5f9;color:#475569}.status-chip.not-started{background:#f1f5f9;color:#64748b}
+.module-status-box{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.06);margin-bottom:25px}
+.module-status-box h3{margin-bottom:12px}.module-status-box p{margin-top:12px;color:#64748b}
+.learning-activity-list{background:white;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.06);margin-bottom:20px;overflow:hidden}
+.learning-activity{padding:18px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.learning-activity:last-child{border-bottom:none}.activity-status{font-size:13px;color:#64748b}
+.discussion-warning{background:#eff6ff;border-left:5px solid #2563eb;padding:18px;border-radius:10px;margin-bottom:20px}
+.discussion-warning p{margin-top:7px;color:#475569;line-height:1.5}
+.discussion-container{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.discussion-messages{background:white;padding:20px;border-radius:16px;box-shadow:0 5px 20px rgba(0,0,0,.06);min-height:300px}
+.discussion-form{background:white;padding:22px;border-radius:16px;box-shadow:0 5px 20px rgba(0,0,0,.06)}
+.discussion-form h3{margin-bottom:15px}.discussion-form label{display:block;font-weight:600;margin:10px 0 5px}
+.discussion-message{background:#f8fafc;padding:15px;border-radius:12px;margin-bottom:12px;border-left:4px solid #2563eb}
+.discussion-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.discussion-role{background:#ede9fe;color:#6d28d9;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:bold}
+.discussion-message p{line-height:1.6;color:#334155}.discussion-time{margin-top:8px;font-size:11px;color:#94a3b8}
+@media(max-width:700px){
+ .learning-overview{flex-direction:column;text-align:center}.learning-stat-row{justify-content:center}
+ .discussion-container{grid-template-columns:1fr}.learning-activity{flex-direction:column;align-items:flex-start}
+}
+
+
+.graph-list{margin-top:24px}.graph-row{margin-bottom:24px}.graph-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-weight:600}.graph-title strong{color:#2563eb}.graph-track{height:14px;background:#e2e8f0;border-radius:20px;overflow:hidden}.graph-fill{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);border-radius:20px;transition:width .5s ease}.graph-meta{display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:#64748b}.column-chart{height:240px;display:flex;align-items:flex-end;justify-content:space-around;gap:12px;padding:25px 10px 5px;border-bottom:2px solid #e2e8f0;margin-top:20px}.column-wrap{height:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;min-width:55px}.column-track{height:170px;width:38px;background:#f1f5f9;border-radius:10px 10px 4px 4px;display:flex;align-items:flex-end;overflow:hidden}.column-fill{width:100%;background:linear-gradient(180deg,#7c3aed,#2563eb);border-radius:10px 10px 0 0;transition:height .5s ease}.column-value{font-size:12px;font-weight:700;color:#2563eb;margin-bottom:5px}.column-wrap>span{font-size:12px;color:#475569;margin-top:8px;text-align:center}.progress-ring{width:105px;height:105px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#2563eb var(--progress),#e2e8f0 0);position:relative}.progress-ring:before{content:'';position:absolute;width:78px;height:78px;border-radius:50%;background:white}.progress-ring div{position:relative;font-weight:800;color:#2563eb}.learning-overview{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+@media(max-width:700px){.learning-overview{flex-direction:column;gap:18px;text-align:center}.column-chart{gap:5px}.column-track{width:28px}.column-wrap>span{font-size:10px}}
 </style>
 </head>
 
-<body>
+<body class="logged-in">
 
 
 <!-- LOGIN PAGE -->
-<div id="loginPage" class="login-page">
+<div id="loginPage" class="login-page hidden">
     <div class="login-card">
         <div class="login-logo">🎓 CAMPUSCONNECT</div>
         <p class="login-subtitle">Student Learning Portal</p>
 
         <form onsubmit="loginUser(event)">
             <label for="loginName">Student Name</label>
-            <input id="loginName" type="text" placeholder="Enter your name" required>
+            <input id="loginName" type="text" placeholder="Enter your name" required="">
 
             <label for="loginYear">Year</label>
-            <select id="loginYear" required>
+            <select id="loginYear" required="">
                 <option value="">Select your year</option>
                 <option>1st Year</option>
                 <option>2nd Year</option>
@@ -491,7 +536,7 @@ select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px
             </select>
 
             <label for="loginGroup">Group</label>
-            <select id="loginGroup" required>
+            <select id="loginGroup" required="">
                 <option value="">Select your group</option>
                 <option>Data Science</option>
                 <option>Computer Science</option>
@@ -501,7 +546,7 @@ select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px
                 <option>B.Com</option>
             </select>
 
-            <div id="loginError" class="login-error">Please enter your name, year and group.</div>
+            <div id="loginError" class="login-error" style="display: none;">Please enter your name, year and group.</div>
 
             <button class="login-btn" type="submit">Login to CampusConnect →</button>
         </form>
@@ -510,7 +555,7 @@ select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px
     </div>
 </div>
 
-<header>
+<header class="">
 
 <div class="logo">🎓 CAMPUSCONNECT</div>
 
@@ -524,8 +569,9 @@ select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px
 <button onclick="showEvents()">Events</button>
 <button onclick="showClubs()">Clubs</button>
 <button onclick="showChat()">Mini Chat</button>
+<button onclick="showDiscussion()">Discussion</button>
 <div class="user-badge">
-    <span id="loggedInUser">Student</span>
+    <span id="loggedInUser">Hi, gfg</span>
     <button class="logout-btn" onclick="logoutUser()">Logout</button>
 </div>
 </nav>
@@ -535,7 +581,7 @@ select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px
 
 <!-- HOME -->
 
-<div id="homePage">
+<div id="homePage" class="">
 
 <section class="hero">
 
@@ -545,11 +591,7 @@ select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px
 One Portal. Every Subject. Every Skill.
 </p>
 
-<input
-class="search"
-id="searchBox"
-placeholder="Search subjects, notes, quizzes, coding problems..."
-onkeyup="searchContent()">
+<input class="search" id="searchBox" placeholder="Search subjects, notes, quizzes, coding problems..." onkeyup="searchContent()">
 
 </section>
 
@@ -610,7 +652,7 @@ onkeyup="searchContent()">
 </div>
 
 <div class="card">
-<div class="icon">🇬🇧</div>
+<div class="icon">🗣️</div>
 <h3>English Skills</h3>
 <p>Improve grammar, vocabulary and communication.</p>
 <button class="btn" onclick="showEnglish()">Learn English</button>
@@ -635,7 +677,7 @@ onkeyup="searchContent()">
 <div id="contentPage" class="container hidden"></div>
 
 
-<footer>
+<footer class="">
 
 <h2>🎓 CAMPUSCONNECT</h2>
 
@@ -773,6 +815,198 @@ const subjects = {
 };
 
 
+
+/* ================= CAMPUSCONNECT ENHANCEMENTS ================= */
+
+let campusHistory = [];
+
+function getDiscussionMessages(){
+    return JSON.parse(localStorage.getItem("cc_discussion_messages") || "[]");
+}
+function saveDiscussionMessages(messages){
+    localStorage.setItem("cc_discussion_messages", JSON.stringify(messages));
+}
+function escapeHTML(text){
+    return String(text).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;").replace(/'/g,"&#039;");
+}
+
+function showDiscussion(){
+    hideHome();
+    const messages = getDiscussionMessages();
+    let messageHTML = messages.length ? messages.map(msg => `
+        <div class="discussion-message">
+            <div class="discussion-header">
+                <strong>${escapeHTML(msg.name)}</strong>
+                <span class="discussion-role">${escapeHTML(msg.role)}</span>
+            </div>
+            <p>${escapeHTML(msg.message)}</p>
+            <div class="discussion-time">${escapeHTML(msg.time)}</div>
+        </div>`).join("") :
+        `<div class="small" style="text-align:center;padding:30px">No discussions yet. Start an educational discussion with your classmates.</div>`;
+
+    showContent(`
+        <button class="btn back" onclick="goBack()">← Back</button>
+        <div class="breadcrumb">Home → Educational Discussion</div>
+        <div class="subject-header">
+            <h2>💬 Educational Discussion Group</h2>
+            <p style="margin-top:10px;color:#64748b">Discuss academic topics, doubts, assignments, projects and learning resources with classmates and teachers.</p>
+        </div>
+        <div class="discussion-warning">
+            🎓 <strong>Educational Use Only</strong>
+            <p>Please keep discussions related to academics, learning, projects, assignments, exams and campus activities.</p>
+        </div>
+        <div class="discussion-container">
+            <div class="discussion-messages">${messageHTML}</div>
+            <div class="discussion-form">
+                <h3>Post a Message</h3>
+                <label>Your Name</label>
+                <input type="text" id="discussionName" placeholder="Enter your name">
+                <label>You are</label>
+                <select id="discussionRole"><option>Student</option><option>Teacher</option></select>
+                <label>Your Message</label>
+                <textarea id="discussionMessage" placeholder="Ask a question or share something educational..." style="min-height:120px"></textarea>
+                <button class="btn" onclick="postDiscussion()">Post Discussion</button>
+            </div>
+        </div>
+    `);
+}
+function postDiscussion(){
+    const name=document.getElementById("discussionName").value.trim();
+    const role=document.getElementById("discussionRole").value;
+    const message=document.getElementById("discussionMessage").value.trim();
+    if(!name || !message){ alert("Please enter your name and message."); return; }
+    const messages=getDiscussionMessages();
+    messages.push({name,role,message,time:new Date().toLocaleString()});
+    saveDiscussionMessages(messages);
+    showDiscussion();
+}
+
+const learningModules=[
+ {id:"quiz",icon:"📝",title:"Quiz Center",description:"Subject quizzes, unit quizzes and practice tests."},
+ {id:"coding",icon:"💻",title:"Coding Lab",description:"Practice programming problems and coding logic."},
+ {id:"english",icon:"🗣️",title:"English Skills",description:"Improve grammar, vocabulary and communication."},
+ {id:"aptitude",icon:"🧠",title:"Aptitude",description:"Practice quantitative, logical and verbal aptitude."},
+ {id:"event",icon:"🎉",title:"Events",description:"Participate in college events and activities."},
+ {id:"club",icon:"🤝",title:"Clubs",description:"Explore and join student clubs."}
+];
+
+function getModuleStatus(moduleId){
+    const activity=getActivity();
+    const count=activity[moduleId] || 0;
+    let status="Not Started";
+    if(count>=3) status="Completed";
+    else if(count===2) status="In Progress";
+    else if(count===1) status="Paused";
+    return {count,status};
+}
+
+function showLearningDetails(moduleId){
+    hideHome();
+    const module=learningModules.find(x=>x.id===moduleId);
+    if(!module) return;
+    const info=getModuleStatus(moduleId);
+    const activities={
+        quiz:["Complete a subject quiz","Attempt a unit quiz","Take a practice quiz"],
+        coding:["Solve a coding problem","Practice programming logic","Complete another coding challenge"],
+        english:["Complete grammar practice","Practice vocabulary","Complete communication activity"],
+        aptitude:["Practice quantitative aptitude","Practice logical reasoning","Practice verbal ability"],
+        event:["Explore available events","Register for an event","Participate in a campus activity"],
+        club:["Explore student clubs","Join a club","Participate in club activity"]
+    };
+    const activityHTML=activities[moduleId].map((item,index)=>`
+        <div class="learning-activity">
+            <span>${index<info.count?"✅":"⬜"} ${item}</span>
+            <span class="activity-status">${index<info.count?"Completed":"Pending"}</span>
+        </div>`).join("");
+    showContent(`
+        <button class="btn back" onclick="showDashboard()">← Back to My Learning</button>
+        <div class="subject-header"><h2>${module.icon} ${module.title}</h2><p style="margin-top:10px;color:#64748b">${module.description}</p></div>
+        <div class="module-status-box">
+            <h3>Current Status</h3>
+            <span class="status-chip">${info.status}</span>
+            <p>${info.count} of 3 activities completed.</p>
+        </div>
+        <h2 class="section-title">What's Inside?</h2>
+        <div class="learning-activity-list">${activityHTML}</div>
+        <button class="btn" onclick="openModuleFromLearning('${moduleId}')">Open ${module.title}</button>
+    `);
+}
+function openModuleFromLearning(moduleId){
+    if(moduleId==="quiz") showQuizCenter();
+    else if(moduleId==="coding") showCoding();
+    else if(moduleId==="english") showEnglish();
+    else if(moduleId==="aptitude") showAptitude();
+    else if(moduleId==="event") showEvents();
+    else if(moduleId==="club") showClubs();
+}
+function resetLearningProgress(){
+    if(confirm("Reset your CampusConnect learning progress?")){
+        localStorage.removeItem("cc_activity");
+        updateHomeStats();
+        showDashboard();
+    }
+}
+
+function showDashboard(){
+    hideHome();
+    const activity=getActivity();
+    const total=Object.values(activity).reduce((a,b)=>a+b,0);
+    const maxActivities=18;
+    const progress=Math.min(100,Math.round(total/maxActivities*100));
+
+    const chart=learningModules.map(module=>{
+        const info=getModuleStatus(module.id);
+        const p=Math.min(100,Math.round(info.count/3*100));
+        return `<div class="chart-item">
+            <div class="chart-label"><span>${module.icon} ${module.title}</span><strong>${p}%</strong></div>
+            <div class="chart-bar"><div class="chart-fill" style="width:${p}%"></div></div>
+        </div>`;
+    }).join("");
+
+    const cards=learningModules.map(module=>{
+        const info=getModuleStatus(module.id);
+        const cls=info.status.toLowerCase().replace(" ","-");
+        return `<div class="learning-module-card" onclick="showLearningDetails('${module.id}')">
+            <div class="learning-icon">${module.icon}</div>
+            <div class="learning-info"><h3>${module.title}</h3><p>${module.description}</p>
+            <span class="status-chip ${cls}">${info.status}</span></div>
+            <div class="learning-arrow">→</div>
+        </div>`;
+    }).join("");
+
+    showContent(`
+        <button class="btn back" onclick="goBack()">← Back</button>
+        <div class="subject-header"><h2>📊 My Learning</h2><p style="margin-top:10px;color:#64748b">Track your learning activities, completion status and performance.</p></div>
+        <div class="learning-overview">
+            <div class="progress-circle" style="background:conic-gradient(#2563eb ${progress*3.6}deg,#e2e8f0 ${progress*3.6}deg)">
+                <div class="progress-inner"><strong>${progress}%</strong><span>Overall</span></div>
+            </div>
+            <div><h2>Your Learning Progress</h2><p>Your progress changes according to activities you actually complete inside CampusConnect.</p>
+            <div class="learning-stat-row"><div><strong>${total}</strong><span>Activities Completed</span></div><div><strong>${learningModules.length}</strong><span>Learning Areas</span></div></div></div>
+        </div>
+        <div class="performance-card"><h2>📈 Performance Graph</h2><p class="small">Activity-based progress across learning modules.</p><div class="performance-chart">${chart}</div></div>
+        <h2 class="section-title">Learning Modules</h2>
+        <div class="learning-module-list">${cards}</div>
+        <button class="btn" style="background:#dc2626" onclick="resetLearningProgress()">Reset My Progress</button>
+    `);
+}
+
+/* Real back navigation for dynamic pages */
+function goBack(){
+    if(campusHistory.length){
+        const previous=campusHistory.pop();
+        const content=document.getElementById("contentPage");
+        content.innerHTML=previous;
+        document.getElementById("homePage").classList.add("hidden");
+        content.classList.remove("hidden");
+        window.scrollTo(0,0);
+    }else{
+        showHome();
+    }
+}
+
+
 /* ================= PAGE FUNCTIONS ================= */
 
 function hideHome(){
@@ -794,7 +1028,7 @@ function showYears(){
     hideHome();
 
     let html = `
-    <button class="btn back" onclick="showHome()">← Back</button>
+    <button class="btn back" onclick="goBack()">← Back</button>
 
     <h2 class="section-title">Choose Your Year</h2>
 
@@ -1601,25 +1835,68 @@ function showDashboard(){
  hideHome();
  const a=getActivity();
  const total=Object.values(a).reduce((x,y)=>x+y,0);
- const pct=Math.min(100,Math.round(total/20*100));
+ const maxActivities=20;
+ const pct=Math.min(100,Math.round(total/maxActivities*100));
+ const modules=[
+   {id:'quiz',icon:'📝',title:'Quizzes',value:a.quiz||0,max:3},
+   {id:'coding',icon:'💻',title:'Coding',value:a.coding||0,max:3},
+   {id:'english',icon:'🗣️',title:'English',value:a.english||0,max:3},
+   {id:'aptitude',icon:'🧠',title:'Aptitude',value:a.aptitude||0,max:3},
+   {id:'event',icon:'📅',title:'Events',value:a.event||0,max:3},
+   {id:'club',icon:'🎯',title:'Clubs',value:a.club||0,max:3}
+ ];
+ const moduleBars=modules.map(m=>{
+   const progress=Math.min(100,Math.round(m.value/m.max*100));
+   let status=progress>=100?'Completed':progress>0?'In Progress':'Not Started';
+   return `<div class="graph-row">
+      <div class="graph-title"><span>${m.icon} ${m.title}</span><strong>${progress}%</strong></div>
+      <div class="graph-track"><div class="graph-fill" style="width:${progress}%"></div></div>
+      <div class="graph-meta"><span>${m.value} / ${m.max} activities</span><span>${status}</span></div>
+   </div>`;
+ }).join('');
+ const distribution=modules.map(m=>{
+   const h=Math.max(6,Math.min(100,Math.round((m.value/m.max)*100)));
+   return `<div class="column-wrap"><div class="column-value">${m.value}</div><div class="column-track"><div class="column-fill" style="height:${h}%"></div></div><span>${m.title}</span></div>`;
+ }).join('');
+ const learningModules=modules;
+ const moduleCards=learningModules.map(m=>{
+   const progress=Math.min(100,Math.round(m.value/m.max*100));
+   const status=progress>=100?'Completed':progress>0?'In Progress':progress===0?'Not Started':'Paused';
+   return `<div class="learning-module-card" onclick="showLearningDetails('${m.id}')">
+      <div class="learning-icon">${m.icon}</div><div class="learning-info"><h3>${m.title}</h3>
+      <p>Track your ${m.title.toLowerCase()} learning activities and progress.</p>
+      <span class="status-chip ${status.toLowerCase().replace(' ','-')}" >${status}</span></div><div class="learning-arrow">→</div>
+   </div>`;
+ }).join('');
  let html=`<button class="btn back" onclick="showHome()">← Home</button>
- <h2 class="section-title">📊 My Learning Dashboard</h2>
- <div class="subject-header"><h2>${pct}% Active Progress</h2>
- <p>This progress is calculated only from activities you actually complete in this browser. No fake progress is added.</p></div>
- <div class="stats">
- <div class="stat"><h2>${a.quiz}</h2><p>Quizzes Completed</p></div>
- <div class="stat"><h2>${a.coding}</h2><p>Coding Problems Checked</p></div>
- <div class="stat"><h2>${a.english}</h2><p>English Practices</p></div>
- <div class="stat"><h2>${a.event}</h2><p>Events Registered</p></div>
- <div class="stat"><h2>${a.club}</h2><p>Clubs Joined</p></div>
- <div class="stat"><h2>${total}</h2><p>Total Activities</p></div>
+ <h2 class="section-title">📊 My Learning</h2>
+ <div class="learning-overview card">
+   <div><h2>${pct}% Overall Progress</h2><p>Based only on activities completed in this browser.</p></div>
+   <div class="progress-ring" style="--progress:${pct}%"><div>${pct}%</div></div>
  </div>
- <div class="card"><h3>Progress Tracking</h3>
- <p>Complete quizzes, coding problems, English practice, event registration, or club registration to increase your activity count.</p>
- <button class="btn" onclick="localStorage.removeItem('cc_activity');updateHomeStats();showDashboard()">Reset My Progress</button></div>`;
+ <div class="stats">
+   <div class="stat"><h2>${a.quiz||0}</h2><p>Quizzes</p></div>
+   <div class="stat"><h2>${a.coding||0}</h2><p>Coding</p></div>
+   <div class="stat"><h2>${a.english||0}</h2><p>English</p></div>
+   <div class="stat"><h2>${a.aptitude||0}</h2><p>Aptitude</p></div>
+   <div class="stat"><h2>${a.event||0}</h2><p>Events</p></div>
+   <div class="stat"><h2>${a.club||0}</h2><p>Clubs</p></div>
+ </div>
+ <div class="performance-card">
+   <h2>📈 Performance by Module</h2><p class="small">A visual comparison of your completed learning activities.</p>
+   <div class="graph-list">${moduleBars}</div>
+ </div>
+ <div class="performance-card">
+   <h2>📊 Activity Distribution</h2><p class="small">The bars show how many activities you have completed in each module.</p>
+   <div class="column-chart">${distribution}</div>
+ </div>
+ <div class="performance-card">
+   <h2>🎓 Learning Modules</h2><p class="small">Click any module to see what is inside and its current status.</p>
+   <div class="learning-module-list">${moduleCards}</div>
+   <button class="btn" onclick="localStorage.removeItem('cc_activity');updateHomeStats();showDashboard()">Reset My Progress</button>
+ </div>`;
  showContent(html);
 }
-
 /* ================= SEARCH ================= */
 
 function escapeHTML(value){
@@ -1725,26 +2002,25 @@ function showSubjectsBySearch(group, subject){
 
 /* ================= CONTENT ================= */
 
-function showContent(html){
+function showContent(html, saveHistory=true){
 
-    document
-    .getElementById("homePage")
-    .classList
-    .add("hidden");
+    const content=document.getElementById("contentPage");
 
-    let content=document.getElementById("contentPage");
+    if(saveHistory && !content.classList.contains("hidden") && content.innerHTML.trim()){
+        campusHistory.push(content.innerHTML);
+        if(campusHistory.length>20) campusHistory.shift();
+    }
 
+    document.getElementById("homePage").classList.add("hidden");
     content.classList.remove("hidden");
-
     content.innerHTML=html;
-
     window.scrollTo(0,0);
-
 }
 
 updateHomeStats();
 checkLoginSession();
 </script>
 
-</body>
-</html>
+
+
+</body></html>
